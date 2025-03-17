@@ -51,10 +51,35 @@ const Account = ()=>{
             </thead>
             <tbody>
                 <tr>
-                    <td>{data.balance}</td>
-                    <td>{data.fullName}</td>
-                    <td>{data.mobile}</td>
+                    <td>{data.account.balance}</td>
+                    <td>{data.account.fullName}</td>
+                    <td>{data.account.mobile}</td>
                 </tr>
+            </tbody>
+          </table>
+
+          <h2 className="text-primary">Transaction Details</h2>
+
+          <table className="table table-bordered"> 
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    data.transaction.map((tr,index)=>(
+                        <tr key={index}>
+                            <td>{tr.id}</td>
+                            <td>{tr.amount}</td>
+                            <td>{tr.type}</td>
+                            <td>{tr.date.toString()}</td>
+                        </tr>
+                    ))
+                }
             </tbody>
           </table>
         </div>
